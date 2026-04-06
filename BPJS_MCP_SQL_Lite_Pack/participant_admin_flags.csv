@@ -1,0 +1,26 @@
+flag_id,participant_id,participant_name,flag_type,flag_status,effective_date,related_case_id,owner_unit,note
+FG-2026-001,PES-10016,Peserta 019,Status kepesertaan perlu validasi,Resolved,2026-03-30,KR-2026-007,Tim Koordinasi Rujukan,Perlu cek NIK dan tanggal lahir
+FG-2026-002,PES-10029,Peserta 011,Riwayat rujukan perlu verifikasi,Open,2026-04-02,KR-2026-004,Unit Verifikasi Klaim,Ada selisih data antar dokumen
+FG-2026-003,PES-10024,Peserta 028,Status kepesertaan perlu validasi,Open,2026-03-02,KR-2026-012,Unit Administrasi Peserta,Butuh sinkronisasi data pembayaran
+FG-2026-004,PES-10006,Peserta 040,Lampiran administrasi belum lengkap,Resolved,2026-02-20,KR-2026-038,Unit Administrasi Peserta,Butuh sinkronisasi data pembayaran
+FG-2026-005,PES-10030,Peserta 017,Lampiran administrasi belum lengkap,Under Review,2026-02-21,KR-2026-030,Unit Verifikasi Klaim,Butuh sinkronisasi data pembayaran
+FG-2026-006,PES-10005,Peserta 029,Riwayat rujukan perlu verifikasi,Resolved,2026-03-16,KR-2026-028,Tim Koordinasi Rujukan,Ada selisih data antar dokumen
+FG-2026-007,PES-10030,Peserta 020,Status kepesertaan perlu validasi,Under Review,2026-02-09,KR-2026-016,Unit Verifikasi Klaim,Ada selisih data antar dokumen
+FG-2026-008,PES-10037,Peserta 019,Riwayat rujukan perlu verifikasi,Open,2026-02-10,KR-2026-018,Unit Administrasi Peserta,Perlu cek NIK dan tanggal lahir
+FG-2026-009,PES-10039,Peserta 032,Riwayat rujukan perlu verifikasi,Open,2026-02-25,,Unit Administrasi Peserta,Butuh sinkronisasi data pembayaran
+FG-2026-010,PES-10040,Peserta 017,Status kepesertaan perlu validasi,Resolved,2026-03-29,,Tim Koordinasi Rujukan,Perlu cek NIK dan tanggal lahir
+FG-2026-011,PES-10020,Peserta 029,Data identitas belum sinkron,Resolved,2026-03-12,,Unit Administrasi Peserta,Ada selisih data antar dokumen
+FG-2026-012,PES-10021,Peserta 027,Status kepesertaan perlu validasi,Open,2026-03-27,,Unit Verifikasi Klaim,Ada selisih data antar dokumen
+FG-2026-013,PES-10011,Peserta 017,Lampiran administrasi belum lengkap,Under Review,2026-02-16,,Unit Administrasi Peserta,Validasi lanjutan oleh petugas
+FG-2026-014,PES-10005,Peserta 010,Status kepesertaan perlu validasi,Resolved,2026-02-17,KR-2026-026,Tim Koordinasi Rujukan,Ada selisih data antar dokumen
+FG-2026-015,PES-10006,Peserta 026,Data identitas belum sinkron,Under Review,2026-03-01,KR-2026-024,Tim Koordinasi Rujukan,Ada selisih data antar dokumen
+FG-2026-016,PES-10038,Peserta 025,Riwayat rujukan perlu verifikasi,Open,2026-02-20,KR-2026-002,Tim Koordinasi Rujukan,Ada selisih data antar dokumen
+FG-2026-017,PES-10040,Peserta 015,Data identitas belum sinkron,Resolved,2026-02-11,KR-2026-020,Tim Koordinasi Rujukan,Validasi lanjutan oleh petugas
+FG-2026-018,PES-10008,Peserta 009,Data identitas belum sinkron,Open,2026-03-16,,Unit Administrasi Peserta,Perlu cek NIK dan tanggal lahir
+FG-2026-019,PES-10016,Peserta 035,Status kepesertaan perlu validasi,Under Review,2026-03-06,KR-2026-035,Unit Verifikasi Klaim,Butuh sinkronisasi data pembayaran
+FG-2026-020,PES-10027,Peserta 007,Lampiran administrasi belum lengkap,Resolved,2026-03-09,,Unit Verifikasi Klaim,Perlu cek NIK dan tanggal lahir
+FG-2026-021,PES-10024,Peserta 014,Lampiran administrasi belum lengkap,Under Review,2026-03-20,,Unit Administrasi Peserta,Ada selisih data antar dokumen
+FG-2026-022,PES-10035,Peserta 023,Data identitas belum sinkron,Under Review,2026-03-18,KR-2026-008,Unit Verifikasi Klaim,Perlu cek NIK dan tanggal lahir
+FG-2026-023,PES-10014,Peserta 039,Data identitas belum sinkron,Open,2026-02-13,KR-2026-009,Tim Koordinasi Rujukan,Butuh sinkronisasi data pembayaran
+FG-2026-024,PES-10005,Peserta 036,Status kepesertaan perlu validasi,Resolved,2026-03-22,,Unit Administrasi Peserta,Ada selisih data antar dokumen
+FG-2026-025,PES-10010,Peserta 039,Data identitas belum sinkron,Under Review,2026-02-09,,Unit Administrasi Peserta,Ada selisih data antar dokumen

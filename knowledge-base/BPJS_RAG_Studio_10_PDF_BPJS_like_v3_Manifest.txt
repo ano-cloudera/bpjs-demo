@@ -1,0 +1,15 @@
+BPJS-like internal document pack v3
+
+Use Case 1 - Internal Knowledge Assistant
+- UC1_01_Pedoman_Layanan_Pengetahuan_Internal_BPJS_like_v2.pdf | 6 pages
+- UC1_02_SOP_Verifikasi_Klaim_Rawat_Inap_BPJS_like_v2.pdf | 6 pages
+- UC1_03_SOP_Koordinasi_Rujukan_dan_Eskalasi_Layanan_BPJS_like_v2.pdf | 5 pages
+- UC1_04_FAQ_Eligibilitas_dan_Administrasi_Peserta_BPJS_like_v2.pdf | 5 pages
+- UC1_05_Memo_Pengecualian_dan_Dispute_Operasional_BPJS_like_v2.pdf | 5 pages
+
+Use Case 2 - Claims Investigation Copilot
+- UC2_01_Berkas_Kasus_Klaim_Prioritas_Review_BPJS_like_v2.pdf | 5 pages
+- UC2_02_Kronologi_dan_Lampiran_Ringkas_Kasus_BPJS_like_v2.pdf | 4 pages
+- UC2_03_Catatan_Reviewer_dan_Temuan_Awal_BPJS_like_v2.pdf | 5 pages
+- UC2_04_Panduan_Indikasi_Anomali_dan_Red_Flag_Klaim_BPJS_like_v2.pdf | 4 pages
+- UC2_05_Brief_Tindak_Lanjut_dan_Eskalasi_Investigasi_BPJS_like_v2.pdf | 5 pages

@@ -1,0 +1,46 @@
+BPJS MCP SQL Lite - Installation Guide
+
+Option A - Fastest path with sqlite MCP server
+1. Place bpjs_mcp_demo.sqlite inside your Cloudera AI project directory.
+2. Open the project terminal / workbench session.
+3. Install Node.js or use an environment where npx is available.
+4. Register an MCP server in RAG Studio Settings using a SQLite-compatible MCP server.
+5. Pass the database path as an argument or environment variable, depending on the MCP server you use.
+6. Save the MCP configuration and test with a simple query-style question.
+
+Generic MCP config pattern:
+{
+  "mcpServers": {
+    "bpjs-sqlite": {
+      "command": "npx",
+      "args": ["-y", "<sqlite-mcp-package>", "--db", "/home/cdsw/project/bpjs_mcp_demo.sqlite"]
+    }
+  }
+}
+
+Option B - Python workaround if an MCP package is not available in your runtime
+1. Use Python in the Cloudera AI project to expose a lightweight local service over stdio or HTTP.
+2. The service receives a limited set of read-only requests.
+3. The service executes SELECT-only queries against bpjs_mcp_demo.sqlite.
+4. RAG Studio connects to that service through MCP if supported, or you keep it as a sidecar helper for screenshots/demo backup.
+
+Read-only guardrails
+- Allow SELECT only
+- Reject INSERT, UPDATE, DELETE, DROP, ALTER
+- Limit max rows returned to 20
+- Keep table names fixed to the demo schema
+
+Suggested natural-language to SQL intent map
+- pending verifikasi -> claim_cases.status = 'Pending Verifikasi'
+- prioritas review -> priority_level IN ('High','Critical') or claim_type = 'Prioritas Review'
+- overdue -> review_queue.overdue_days > 0
+- klarifikasi rujukan -> referral_cases.clarification_needed = 1
+- flag administrasi -> participant_admin_flags
+
+Suggested join example
+SELECT c.case_id, c.participant_name, c.claim_amount, q.queue_status, q.overdue_days, q.next_action
+FROM claim_cases c
+JOIN review_queue q ON c.case_id = q.case_id
+WHERE c.priority_level IN ('High','Critical')
+ORDER BY c.claim_amount DESC
+LIMIT 10;

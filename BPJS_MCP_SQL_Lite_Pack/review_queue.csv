@@ -1,0 +1,41 @@
+queue_id,case_id,queue_status,assigned_reviewer,assigned_team,sla_due_date,overdue_days,next_action,escalation_level,last_note,updated_at
+Q-001,KR-2026-001,Closed,Budi Santoso,Review Medis,2026-03-20,0,Bandingkan pola klaim sejenis,Supervisor,Pemeriksaan awal menunjukkan ketidaksesuaian lampiran.,2026-03-18
+Q-002,KR-2026-002,Closed,Citra Lestari,Review Medis,2026-04-01,0,Minta klarifikasi fasilitas,Special Review,Pemeriksaan awal menunjukkan nilai klaim di atas rerata.,2026-03-25
+Q-003,KR-2026-003,Closed,Citra Lestari,Review Administrasi,2026-03-14,0,Tutup kasus jika lengkap,None,Pemeriksaan awal menunjukkan perbedaan tanggal layanan.,2026-03-07
+Q-004,KR-2026-004,In Progress,Citra Lestari,Review Medis,2026-04-14,0,Bandingkan pola klaim sejenis,Supervisor,Pemeriksaan awal menunjukkan frekuensi layanan tinggi.,2026-04-08
+Q-005,KR-2026-005,Closed,Citra Lestari,Review Medis,2026-03-16,0,Lengkapi dokumen pendukung,Manager,Pemeriksaan awal menunjukkan frekuensi layanan tinggi.,2026-03-12
+Q-006,KR-2026-006,Closed,Budi Santoso,Koordinasi Layanan,2026-03-02,0,Minta klarifikasi fasilitas,None,Pemeriksaan awal menunjukkan kronologi rujukan tidak lengkap.,2026-02-28
+Q-007,KR-2026-007,Open,Erika Sari,Prioritas Review,2026-03-09,28,Tutup kasus jika lengkap,Manager,Pemeriksaan awal menunjukkan duplikasi administrasi.,2026-03-03
+Q-008,KR-2026-008,Closed,Erika Sari,Review Administrasi,2026-04-10,0,Lengkapi dokumen pendukung,Manager,Pemeriksaan awal menunjukkan duplikasi administrasi.,2026-04-05
+Q-009,KR-2026-009,Closed,Anisa Putri,Koordinasi Layanan,2026-03-01,0,Minta klarifikasi fasilitas,Supervisor,Pemeriksaan awal menunjukkan frekuensi layanan tinggi.,2026-02-28
+Q-010,KR-2026-010,Closed,Dimas Rahman,Review Medis,2026-04-02,0,Lengkapi dokumen pendukung,Supervisor,Pemeriksaan awal menunjukkan kronologi rujukan tidak lengkap.,2026-03-28
+Q-011,KR-2026-011,Open,Budi Santoso,Prioritas Review,2026-03-10,27,Tutup kasus jika lengkap,Special Review,Pemeriksaan awal menunjukkan ketidaksesuaian lampiran.,2026-03-05
+Q-012,KR-2026-012,Escalated,Fajar Nugroho,Review Medis,2026-03-14,23,Tutup kasus jika lengkap,None,Pemeriksaan awal menunjukkan nilai klaim di atas rerata.,2026-03-07
+Q-013,KR-2026-013,Closed,Anisa Putri,Review Medis,2026-04-05,0,Minta klarifikasi fasilitas,Supervisor,Pemeriksaan awal menunjukkan frekuensi layanan tinggi.,2026-04-04
+Q-014,KR-2026-014,Escalated,Budi Santoso,Prioritas Review,2026-03-14,23,Lengkapi dokumen pendukung,None,Pemeriksaan awal menunjukkan nilai klaim di atas rerata.,2026-03-12
+Q-015,KR-2026-015,Open,Anisa Putri,Review Administrasi,2026-03-20,17,Validasi data peserta,None,Pemeriksaan awal menunjukkan perbedaan tanggal layanan.,2026-03-15
+Q-016,KR-2026-016,Waiting Clarification,Budi Santoso,Prioritas Review,2026-03-01,36,Validasi data peserta,Manager,Pemeriksaan awal menunjukkan kelengkapan resume medis.,2026-02-25
+Q-017,KR-2026-017,Waiting Clarification,Dimas Rahman,Prioritas Review,2026-03-05,32,Bandingkan pola klaim sejenis,None,Pemeriksaan awal menunjukkan ketidaksesuaian lampiran.,2026-03-03
+Q-018,KR-2026-018,Closed,Fajar Nugroho,Prioritas Review,2026-02-26,0,Bandingkan pola klaim sejenis,Special Review,Pemeriksaan awal menunjukkan perbedaan tanggal layanan.,2026-02-24
+Q-019,KR-2026-019,Closed,Dimas Rahman,Review Medis,2026-03-10,0,Minta klarifikasi fasilitas,None,Pemeriksaan awal menunjukkan frekuensi layanan tinggi.,2026-03-04
+Q-020,KR-2026-020,In Progress,Anisa Putri,Prioritas Review,2026-03-30,7,Bandingkan pola klaim sejenis,Special Review,Pemeriksaan awal menunjukkan nilai klaim di atas rerata.,2026-03-24
+Q-021,KR-2026-021,Closed,Fajar Nugroho,Review Medis,2026-04-04,0,Validasi data peserta,None,Pemeriksaan awal menunjukkan duplikasi administrasi.,2026-04-02
+Q-022,KR-2026-022,Waiting Clarification,Erika Sari,Koordinasi Layanan,2026-03-16,21,Tutup kasus jika lengkap,Manager,Pemeriksaan awal menunjukkan nilai klaim di atas rerata.,2026-03-10
+Q-023,KR-2026-023,Closed,Citra Lestari,Review Medis,2026-04-03,0,Tutup kasus jika lengkap,Special Review,Pemeriksaan awal menunjukkan kronologi rujukan tidak lengkap.,2026-04-01
+Q-024,KR-2026-024,Escalated,Dimas Rahman,Prioritas Review,2026-03-26,11,Bandingkan pola klaim sejenis,Supervisor,Pemeriksaan awal menunjukkan perbedaan tanggal layanan.,2026-03-23
+Q-025,KR-2026-025,Closed,Fajar Nugroho,Prioritas Review,2026-03-06,0,Validasi data peserta,Special Review,Pemeriksaan awal menunjukkan nilai klaim di atas rerata.,2026-03-01
+Q-026,KR-2026-026,Closed,Budi Santoso,Review Administrasi,2026-04-07,0,Minta klarifikasi fasilitas,None,Pemeriksaan awal menunjukkan kelengkapan resume medis.,2026-03-31
+Q-027,KR-2026-027,In Progress,Fajar Nugroho,Koordinasi Layanan,2026-03-15,22,Minta klarifikasi fasilitas,Supervisor,Pemeriksaan awal menunjukkan duplikasi administrasi.,2026-03-13
+Q-028,KR-2026-028,Closed,Dimas Rahman,Koordinasi Layanan,2026-03-17,0,Review supervisor,Supervisor,Pemeriksaan awal menunjukkan duplikasi administrasi.,2026-03-11
+Q-029,KR-2026-029,In Progress,Dimas Rahman,Review Administrasi,2026-02-26,39,Tutup kasus jika lengkap,Supervisor,Pemeriksaan awal menunjukkan perbedaan tanggal layanan.,2026-02-24
+Q-030,KR-2026-030,Escalated,Anisa Putri,Prioritas Review,2026-03-29,8,Review supervisor,Special Review,Pemeriksaan awal menunjukkan kelengkapan resume medis.,2026-03-25
+Q-031,KR-2026-031,In Progress,Erika Sari,Review Medis,2026-03-15,22,Validasi data peserta,None,Pemeriksaan awal menunjukkan kelengkapan resume medis.,2026-03-10
+Q-032,KR-2026-032,Open,Anisa Putri,Review Medis,2026-03-13,24,Review supervisor,Supervisor,Pemeriksaan awal menunjukkan nilai klaim di atas rerata.,2026-03-09
+Q-033,KR-2026-033,Waiting Clarification,Citra Lestari,Review Administrasi,2026-04-16,0,Bandingkan pola klaim sejenis,None,Pemeriksaan awal menunjukkan perbedaan tanggal layanan.,2026-04-09
+Q-034,KR-2026-034,Closed,Anisa Putri,Review Medis,2026-03-13,0,Review supervisor,Special Review,Pemeriksaan awal menunjukkan ketidaksesuaian lampiran.,2026-03-06
+Q-035,KR-2026-035,In Progress,Erika Sari,Prioritas Review,2026-03-18,19,Bandingkan pola klaim sejenis,Special Review,Pemeriksaan awal menunjukkan kelengkapan resume medis.,2026-03-12
+Q-036,KR-2026-036,Open,Citra Lestari,Review Administrasi,2026-03-28,9,Validasi data peserta,Supervisor,Pemeriksaan awal menunjukkan perbedaan tanggal layanan.,2026-03-24
+Q-037,KR-2026-037,Escalated,Anisa Putri,Review Medis,2026-03-31,6,Review supervisor,Supervisor,Pemeriksaan awal menunjukkan kronologi rujukan tidak lengkap.,2026-03-27
+Q-038,KR-2026-038,Waiting Clarification,Citra Lestari,Review Administrasi,2026-03-05,32,Minta klarifikasi fasilitas,Supervisor,Pemeriksaan awal menunjukkan nilai klaim di atas rerata.,2026-03-02
+Q-039,KR-2026-039,In Progress,Budi Santoso,Prioritas Review,2026-03-29,8,Minta klarifikasi fasilitas,Supervisor,Pemeriksaan awal menunjukkan duplikasi administrasi.,2026-03-26
+Q-040,KR-2026-040,In Progress,Citra Lestari,Koordinasi Layanan,2026-03-06,31,Minta klarifikasi fasilitas,None,Pemeriksaan awal menunjukkan kronologi rujukan tidak lengkap.,2026-03-05
