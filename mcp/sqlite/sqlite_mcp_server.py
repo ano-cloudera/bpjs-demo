@@ -8,13 +8,12 @@ from mcp.server.fastmcp import FastMCP
 
 DB_PATH = os.environ.get(
     "BPJS_SQLITE_DB",
-    "/home/cdsw/bpjs-demo/BPJS_MCP_SQL_Lite_Pack/bpjs_mcp_demo.sqlite",
+    ""
 )
 
-LOG_FILE = "/home/cdsw/bpjs-demo/mcp/sqlite/mcp_sqlite.log"
+LOG_FILE = os.path.join(os.path.dirname(__file__), "mcp_sqlite.log")
 
 mcp = FastMCP("bpjs-sqlite")
-
 
 VALID_CLAIM_STATUS = {
     "Pending Verifikasi",
@@ -53,7 +52,8 @@ def log(msg: str) -> None:
 
 
 def get_conn() -> sqlite3.Connection:
-    log(f"Opening DB: {DB_PATH}")
+    if not DB_PATH:
+        raise ValueError("BPJS_SQLITE_DB is not set.")
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -94,14 +94,14 @@ def run_query(sql: str, params: tuple = ()) -> str:
 
 @mcp.tool()
 def health_check() -> str:
-    """Check whether the BPJS SQLite operational data tool is available."""
+    """Check whether the BPJS operational data tool is running."""
     log("Tool called: health_check")
-    return "BPJS SQLite MCP tool is running."
+    return "BPJS operational data tool is running."
 
 
 @mcp.tool()
 def get_claim_status_summary() -> str:
-    """Return ringkasan jumlah kasus per status dari data operasional klaim."""
+    """Return jumlah kasus per status dari data operasional klaim."""
     log("Tool called: get_claim_status_summary")
     sql = """
     SELECT status, COUNT(*) AS total_cases
@@ -114,7 +114,7 @@ def get_claim_status_summary() -> str:
 
 @mcp.tool()
 def get_overdue_review_cases() -> str:
-    """Return daftar 10 kasus review yang overdue lebih dari 3 hari."""
+    """Return 10 kasus review yang overdue lebih dari 3 hari."""
     log("Tool called: get_overdue_review_cases")
     sql = """
     SELECT case_id, queue_status, assigned_reviewer, overdue_days, next_action
@@ -217,7 +217,7 @@ def get_top_priority_claims() -> str:
 
 @mcp.tool()
 def get_referral_cases_by_status(referral_status: str) -> str:
-    """Return daftar kasus referral berdasarkan status, misalnya Waiting Clarification."""
+    """Return daftar referral berdasarkan status, misalnya Waiting Clarification."""
     referral_status = validate_choice(referral_status, VALID_REFERRAL_STATUS, "referral_status")
     log(f"Tool called: get_referral_cases_by_status referral_status={referral_status}")
     sql = """
@@ -275,6 +275,49 @@ def get_cases_summary_by_region(region: str) -> str:
     return run_query(sql, (region,))
 
 
+@mcp.tool()
+def get_reviewer_workload_summary() -> str:
+    """Return summary workload reviewer berdasarkan total kasus, overdue cases, dan escalated cases."""
+    log("Tool called: get_reviewer_workload_summary")
+    sql = """
+    SELECT
+      assigned_reviewer,
+      COUNT(*) AS total_cases,
+      SUM(CASE WHEN overdue_days > 3 THEN 1 ELSE 0 END) AS overdue_cases,
+      SUM(CASE WHEN queue_status = 'Escalated' THEN 1 ELSE 0 END) AS escalated_cases
+    FROM review_queue
+    GROUP BY assigned_reviewer
+    ORDER BY overdue_cases DESC, total_cases DESC
+    LIMIT 10
+    """
+    return run_query(sql)
+
+
+@mcp.tool()
+def get_high_risk_overdue_cases() -> str:
+    """Return high risk overdue cases berdasarkan overdue review dan anomaly score."""
+    log("Tool called: get_high_risk_overdue_cases")
+    sql = """
+    SELECT
+      c.case_id,
+      c.participant_name,
+      c.claim_amount,
+      c.status,
+      c.anomaly_score,
+      r.assigned_reviewer,
+      r.overdue_days,
+      r.next_action
+    FROM claim_cases c
+    JOIN review_queue r
+      ON c.case_id = r.case_id
+    WHERE r.overdue_days > 7
+      AND c.status IN ('Dalam Review', 'Eskalasi')
+    ORDER BY c.anomaly_score DESC, r.overdue_days DESC
+    LIMIT 10
+    """
+    return run_query(sql)
+
+
 if __name__ == "__main__":
-    log("Starting MCP server")
+    log("Starting SQLite MCP server")
     mcp.run()
