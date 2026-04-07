@@ -27,39 +27,24 @@ def get_conn():
     return conn
 
 
-def rows_to_json(rows):
-    return json.dumps([dict(r) for r in rows], ensure_ascii=False, indent=2)
-
-
-def is_safe_select(query: str) -> bool:
-    q = query.strip().lower()
-    blocked = [
-        "insert ",
-        "update ",
-        "delete ",
-        "drop ",
-        "alter ",
-        "create ",
-        "attach ",
-        "pragma ",
-        "replace ",
-    ]
-    return q.startswith("select ") and not any(token in q for token in blocked)
+def rows_to_text(rows):
+    if not rows:
+        return "Tidak ada data."
+    data = [dict(r) for r in rows]
+    return json.dumps(data, ensure_ascii=False, indent=2)
 
 
 @mcp.tool()
-def list_tables() -> str:
-    log("Tool called: list_tables")
-    with get_conn() as conn:
-        rows = conn.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
-        ).fetchall()
-    return rows_to_json(rows)
+def health_check() -> str:
+    """Check whether the BPJS SQLite MCP tool is running."""
+    log("Tool called: health_check")
+    return "BPJS SQLite MCP tool is running."
 
 
 @mcp.tool()
-def claim_status_summary() -> str:
-    log("Tool called: claim_status_summary")
+def get_claim_status_summary() -> str:
+    """Get current jumlah kasus per status."""
+    log("Tool called: get_claim_status_summary")
     sql = """
     SELECT status, COUNT(*) AS total
     FROM claim_cases
@@ -68,70 +53,55 @@ def claim_status_summary() -> str:
     """
     with get_conn() as conn:
         rows = conn.execute(sql).fetchall()
-    return rows_to_json(rows)
+    return rows_to_text(rows)
 
 
 @mcp.tool()
-def overdue_review_cases(min_overdue_days: int = 3, limit: int = 10) -> str:
-    log(f"Tool called: overdue_review_cases min_overdue_days={min_overdue_days} limit={limit}")
+def get_overdue_review_cases() -> str:
+    """Get review cases overdue lebih dari 3 hari."""
+    log("Tool called: get_overdue_review_cases")
     sql = """
     SELECT case_id, queue_status, assigned_reviewer, overdue_days, next_action
     FROM review_queue
-    WHERE overdue_days > ?
+    WHERE overdue_days > 3
     ORDER BY overdue_days DESC
-    LIMIT ?
+    LIMIT 10
     """
     with get_conn() as conn:
-        rows = conn.execute(sql, (min_overdue_days, limit)).fetchall()
-    return rows_to_json(rows)
+        rows = conn.execute(sql).fetchall()
+    return rows_to_text(rows)
 
 
 @mcp.tool()
-def top_priority_claims(limit: int = 5) -> str:
-    log(f"Tool called: top_priority_claims limit={limit}")
+def get_top_priority_claims() -> str:
+    """Get top 5 active priority claims with highest claim amount."""
+    log("Tool called: get_top_priority_claims")
     sql = """
     SELECT case_id, participant_name, claim_amount, status, priority_level, anomaly_score
     FROM claim_cases
     WHERE status IN ('Pending Verifikasi', 'Dalam Review', 'Eskalasi')
     ORDER BY claim_amount DESC
-    LIMIT ?
+    LIMIT 5
     """
     with get_conn() as conn:
-        rows = conn.execute(sql, (limit,)).fetchall()
-    return rows_to_json(rows)
+        rows = conn.execute(sql).fetchall()
+    return rows_to_text(rows)
 
 
 @mcp.tool()
-def referral_clarification_cases(limit: int = 10) -> str:
-    log(f"Tool called: referral_clarification_cases limit={limit}")
+def get_referral_clarification_cases() -> str:
+    """Get referral cases that still need clarification."""
+    log("Tool called: get_referral_clarification_cases")
     sql = """
     SELECT referral_id, participant_id, referral_target, referral_status, owner_unit
     FROM referral_cases
     WHERE clarification_needed = 1
     ORDER BY referral_date DESC
-    LIMIT ?
+    LIMIT 10
     """
     with get_conn() as conn:
-        rows = conn.execute(sql, (limit,)).fetchall()
-    return rows_to_json(rows)
-
-
-@mcp.tool()
-def run_readonly_sql(query: str, limit: int = 20) -> str:
-    log(f"Tool called: run_readonly_sql query={query} limit={limit}")
-    if not is_safe_select(query):
-        return json.dumps(
-            {"error": "Only read-only SELECT queries are allowed."},
-            ensure_ascii=False,
-            indent=2,
-        )
-
-    q = query.strip().rstrip(";")
-    wrapped = f"SELECT * FROM ({q}) LIMIT {int(limit)}"
-
-    with get_conn() as conn:
-        rows = conn.execute(wrapped).fetchall()
-    return rows_to_json(rows)
+        rows = conn.execute(sql).fetchall()
+    return rows_to_text(rows)
 
 
 if __name__ == "__main__":
